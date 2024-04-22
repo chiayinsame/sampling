@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Hello</title>
+        <link rel="stylesheet" href="{% static 'sampling/styles.css' %}">
+    </head>
+    <body>
+        <h1>Hello, World!</h1>
+
+        <form action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="submit">
+        </form>
+
+        <div id="results">
+            <b>Results</b>
+            <textarea>
+                {{ results }}
+            </textarea>
+            <button>
+                Copy Results
+            </button>
+            <button>
+                Clear
+            </button>
+        </div>
+    </body>
+</html>
