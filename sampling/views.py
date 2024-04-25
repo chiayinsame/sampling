@@ -39,8 +39,8 @@ def get_results(data, samples):
     return best_fits
 
 class SampleForm(forms.Form):
-    excel_data = forms.CharField(label="Data From Excel")
-    excel_samples = forms.CharField(label="Samples From Excel")
+    excel_data = forms.CharField(label="Data", widget=forms.TextInput(attrs={'class': 'form-control'}))
+    excel_samples = forms.CharField(label="Samples", widget=forms.TextInput(attrs={'class': 'form-control'}))
 
 
 def index(request):
