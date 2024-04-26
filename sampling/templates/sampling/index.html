@@ -14,7 +14,7 @@
             Sample Calculator
         </h1>
 
-        <form action="{% url 'index' %}" method="post">
+        <form id="excel-form" action="{% url 'index' %}" method="post">
             {% csrf_token %}
             <div class="mb-3">
                 {{ form.excel_data.label_tag }}
@@ -26,12 +26,15 @@
                 {{ form.excel_samples }}
                 <div class="form-text">Paste Samples from Excel here</div>
               </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+              <div class="btn-container">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-danger" onclick="clearForm()">Clear</button>
+            </div>
         </form>
 
         <div id="result-div">
             <h3 id="results-header">Results</h3>
-            <textarea id="results">{{ results }}</textarea>
+            <textarea id="results" data-gramm="false">{{ results }}</textarea>
             <button id="copy-button" onclick="copyTextareaContent()">
                 <i class="fa-solid fa-copy"></i>
             </button>
