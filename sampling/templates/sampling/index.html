@@ -27,17 +27,23 @@
                 <div class="form-text">Paste Samples from Excel here</div>
               </div>
               <div class="btn-container">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Get Results</button>
                 <button type="button" class="btn btn-danger" onclick="clearForm()">Clear</button>
             </div>
         </form>
 
         <div id="result-div">
             <h3 id="results-header">Results</h3>
-            <textarea id="results" data-gramm="false">{{ results }}</textarea>
-            <button id="copy-button" onclick="copyTextareaContent()">
-                <i class="fa-solid fa-copy"></i>
-            </button>
+            <p id="results-generated">{{ results_generated }}</p>
+            <textarea id="results" data-gramm="false" readonly>{{ results }}</textarea>
+            <div class="results-btncontainer">
+                <button id="copy-button" onclick="copyTextareaContent()">
+                    <i class="fa-solid fa-copy"></i>
+                </button>
+                <button id="clearResults-button" onclick="clearTextareaContent()">
+                    <i class="fa-regular fa-circle-xmark"></i>
+                </button>
+            </div>
         </div>
     </body>
 </html>

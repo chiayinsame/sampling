@@ -5,6 +5,13 @@ function copyTextareaContent() {
     textarea.setSelectionRange(0, 0);
 }
 
+function clearTextareaContent() {
+    document.getElementById("results").value = "";
+
+    var paragraph = document.getElementById("results-generated");
+    paragraph.style.display = "none";
+}
+
 function clearForm() {
     // Get the form element
     var form = document.getElementById("excel-form");

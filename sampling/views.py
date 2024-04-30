@@ -11,6 +11,7 @@ def get_results(data, samples):
     best_fits = []
     previous_value = data[0]
     data.sort()
+    samples.sort()
 
     # Find the best fit for each sample
     for sample in samples:
@@ -35,7 +36,9 @@ def get_results(data, samples):
                     best_fits.append(value)
                     data.remove(value)
                     break
-        
+
+    # Sort the results
+    best_fits = sorted(best_fits)            
     return best_fits
 
 class SampleForm(forms.Form):
@@ -66,7 +69,8 @@ def index(request):
 
             return render(request, "sampling/index.html", {
                 "form": SampleForm(),
-                "results": results_for_export
+                "results": results_for_export,
+                "results_generated": str(len(results_in_list)) + " results generated",
             })
     else:
         return render(request, "sampling/index.html", {
